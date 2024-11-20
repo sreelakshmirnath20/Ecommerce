@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',LandingView.as_view(),name='landing'),
     path('account/',include('account.urls')),
+    path('customer/',include('customer.urls')),
 ]

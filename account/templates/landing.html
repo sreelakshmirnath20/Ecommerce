@@ -31,25 +31,94 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+     <style>
+        .glow-on-hover {
+                width: 150px;
+                height: 50px;
+                border: none;
+                outline: none;
+                color: #fff;
+                background: #111;
+                cursor: pointer;
+                position: relative;
+                z-index: 0;
+                border-radius: 10px;
+            }
+
+            .glow-on-hover:before {
+                content: '';
+                background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                background-size: 400%;
+                z-index: -1;
+                filter: blur(5px);
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                animation: glowing 20s linear infinite;
+                opacity: 0;
+                transition: opacity .3s ease-in-out;
+                border-radius: 10px;
+            }
+
+            .glow-on-hover:active {
+                color: #000;
+            }
+
+            .glow-on-hover:active:after {
+                background: transparent;
+            }
+
+            .glow-on-hover:hover:before {
+                opacity: 1;
+            }
+
+            .glow-on-hover:after {
+                z-index: -1;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #111;
+                left: 0;
+                top: 0;
+                border-radius: 10px;
+            }
+
+            @keyframes glowing {
+                0% { background-position: 0 0; }
+                50% { background-position: 400% 0; }
+                100% { background-position: 0 0; }
+            }
+     </style>
+
+     
     </head>
 
     <body>
-        <div class="row align-items-center p-3" style="height: 100vh;">
+        <div class="row align-items-center p-3 " style="height: 100vh;background-color: black; ">
             <div class="col">
-                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/314a7f106315539.5f8d8a1eea4c0.jpg" alt="" class="img-fluid">
+                <img src="https://www.pngall.com/wp-content/uploads/9/Electronics-Gadget.png" alt="" class="img-fluid">
             </div>
             <div class="col">
                 <h2 class="text-warning">
                     <i class="fa-solid fa-bag-shopping"></i>
                     Egadgets</h2>
-                    <h4>A point for every gadgets</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, reiciendis? Quae nisi aliquam 
+                    <h4 class="text-light">A point for every gadgets</h4>
+                    <p class="text-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, reiciendis? Quae nisi aliquam 
                         quod repellendus neque sunt reiciendis blanditiis. Eius at aut, debitis blanditiis ut 
                         reiciendis ex quia beatae et!Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         Explicabo quasi totam officia cumque sit deserunt voluptatem qui. Rem assumenda 
                         perspiciatis harum officia cum voluptas ea id. Illo, aperiam. Voluptas, iure.
                     </p>
-                    <a href="{% url 'log' %}" class="btn btn-outline-primary">Explore...</a>
+                    <!-- <a href="{% url 'log' %}" class="btn btn-outline-primary">Explore...</a> -->
+                    <a href="{% url 'log' %}">
+                        <button class="glow-on-hover" type="button">Explore...</button>
+                    </a>
             </div>
 
         </div>
