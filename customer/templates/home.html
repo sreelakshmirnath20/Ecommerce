@@ -2,7 +2,26 @@
 {% block nav %}
 {% load static %}
 
-<h2 class="m-3">Welcome <span></span></h2>
+
+
+<h2 class="m-3">Welcome <span class="text-warning">{{request.user.first_name}} {{request.user.last_name}}</span></h2>
+
+{% if messages %}
+    {% for i in messages %}
+        {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{i}}</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+        {% endif%}
+        {% if i.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{i}}</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+        {% endif%}
+    {% endfor %}
+{% endif%}
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -30,34 +49,34 @@
   <div class="p-2 mt-4 d-flex justify-content-evenly">
 
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://tse4.mm.bing.net/th?id=OIP.PMKqDBjNrdlbd20C5E_RxQHaFj&pid=Api&P=0&h=220" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Smart Phone</h5>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="{% url 'plist' 'SmartPhone' %}" class="stretched-link"></a>
       </div>
     </div>
 
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://tse2.mm.bing.net/th?id=OIP.weylhjWBpzhqzv6SVulg2AHaGz&pid=Api&P=0&h=220" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Tablet</h5>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="{% url 'plist' 'Tablet' %}" class="stretched-link"></a>
       </div>
     </div>
 
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://tse2.mm.bing.net/th?id=OIP.u7RHTynuztobKsBeBg2paQHaHa&pid=Api&P=0&h=220" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Smart watches</h5>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="{% url 'plist' 'SmartWatch' %}" class="stretched-link"></a>
       </div>
     </div>
 
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://tse2.mm.bing.net/th?id=OIP.YHeyWW3_DmbK-EboyJ2IQQHaE9&pid=Api&P=0&h=220" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title"> Laptops</h5>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="{% url 'plist' 'LapTop' %}" class="stretched-link"></a>
       </div>
     </div>
 
