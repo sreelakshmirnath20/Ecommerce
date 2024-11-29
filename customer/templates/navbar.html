@@ -45,13 +45,25 @@
               <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'cartlist% }">
-                      <i class="fa-solid fa-cart-shopping" style="color: #63E6BE;"></i>Cart</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'cartlist' %}">
+                      <i class="fa-solid fa-cart-shopping" style="color: #63E6BE;"></i>Cart
+                      <span class="badge bg-warning">{{cart}}</span>
+                    </a>
+                      
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <i class="fa-solid fa-list" style="color: #B197FC;"></i></a>
+                    <a class="nav-link" href="{% url 'lorder' %}">
+                      <i class="fa-solid fa-list" style="color: #B197FC;"></i>
+                      <span class="badge bg-warning">{{order}}</span>
+                    </a>
+                      
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                      <button class="btn btn-outline-danger">
+                      <i class="fa-solid fa-right-from-bracket" style="color: #B197FC;"></i>
+                      Logout</button>
+                    </a>
                   
                   
                 </ul>

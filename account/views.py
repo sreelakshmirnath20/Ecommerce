@@ -2,10 +2,11 @@ from django.shortcuts import render,redirect
 from django.views import View
 from .forms import *
 from django.contrib import messages
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
 from django.views.generic import TemplateView,FormView,CreateView
 from django.urls import reverse_lazy
+
 
 # Create your views here.
 
@@ -75,4 +76,9 @@ class RegView(CreateView):
     template_name="reg.html"
     form_class=RegForm
     success_url=reverse_lazy('log')
+
+class LogoutView(View):
+    def get(self,request):
+        logout(request)
+        return redirect('landing')
     
